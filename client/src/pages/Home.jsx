@@ -24,6 +24,7 @@ export default function Home() {
       <nav style={{ marginTop: '20px', display: 'flex', gap: '15px' }}>
         <button onClick={() => navigate('/productos')}>Módulo Productos</button>
         <button onClick={() => navigate('/categorias')}>Módulo Categorías</button>
+        <button onClick={() => navigate('/trabajadores')}>Módulo Trabajadores</button>
       </nav>
 
       <main style={{ marginTop: '30px' }}>

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/login';
 import Home from './pages/Home';
+import Trabajadores from './pages/Trabajadores'; // ruta nico
 
 // Componente para proteger rutas privadas (solo si hay token)
 function RutaProtegida({ children }) {
@@ -21,6 +22,7 @@ export default function App() {
           element={
             <RutaProtegida>
               <Home />
+              <Trabajadores /> //nico
             </RutaProtegida>
           } 
         />
