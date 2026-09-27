@@ -1,6 +1,6 @@
 // client/src/pages/AuspiciadoresPage.jsx
 import { useState } from 'react';
-import { registrarAuspiciador } from '../services/auspiciadorService'; // Importamos el "cable" que hicimos
+import { registrarAuspiciador } from "../../services/auspiciadorService"; // Importamos el "cable" que hicimos
 
 export default function AuspiciadoresPage() {
   // Aquí guardamos temporalmente lo que el usuario escribe en las cajitas (Estado)

@@ -2,7 +2,7 @@
 
 // Traemos la dirección de tu backend desde el archivo .env (http://localhost:3000/api)
 // y le agregamos la ruta que creamos ayer
-const API_URL = `${import.meta.env.VITE_API_URL}/auspiciadores`;
+const API_URL = 'http://localhost:3000/api/auspiciadores';
 
 export const registrarAuspiciador = async (datosAuspiciador) => {
   try {
