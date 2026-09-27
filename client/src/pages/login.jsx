@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../services/auth.service.js';
 
-export default function Login() {
-  const [correo, setCorreo] = useState('');
+export default function Login({ onLogin }) {
+  const navigate = useNavigate();
+  const [correo, setCorreo] = useState(''); 
   const [contrasena, setContrasena] = useState('');
   const [error, setError] = useState(null);
   const [cargando, setCargando] = useState(false);
@@ -20,7 +22,9 @@ export default function Login() {
       localStorage.setItem('token', data.token);
       localStorage.setItem('usuario', JSON.stringify(data.usuario));
 
-      setUsuarioLogueado(data.usuario);
+      
+      if (onLogin) onLogin(data.usuario);
+      navigate('/');
     } catch (err) {
       setError(err.message);
     } finally {
