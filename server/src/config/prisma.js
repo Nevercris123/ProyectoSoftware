@@ -1,9 +1,4 @@
-import express from 'express';
-const app = express();
+import { PrismaClient } from '@prisma/client';
 
-app.use(express.json());
-
-// Rutas
-
-// Exportas la app configurada
-export default app;
+export const prisma = new PrismaClient();
+export default prisma;
