@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/login';
 import Home from './pages/Home';
+import Trabajadores from './pages/Trabajadores'; 
+import AuspiciadoresPage from './components/pages/AuspiciadoresPage';
 import Coberturas from './pages/Coberturas';
-import Trabajadores from './pages/Trabajadores'; // ruta nico
 
 // Componente para proteger rutas privadas (solo si hay token)
 function RutaProtegida({ children }) {
@@ -22,12 +23,22 @@ export default function App() {
           path="/" 
           element={
             <RutaProtegida>
-              <Home />
-              <Trabajadores /> //nico
+              <>
+                <Home />
+                <Trabajadores /> {/*nico*/}
+              </>
             </RutaProtegida>
           } 
         />
-
+        <Route 
+          path="/auspiciadores" 
+          element={
+            <RutaProtegida>
+               <AuspiciadoresPage />
+            </RutaProtegida>
+          } 
+        />
+          
         <Route
           path="/coberturas"
           element={
@@ -36,7 +47,6 @@ export default function App() {
             </RutaProtegida>
           }
         />
-
         {/* Cada compañero agregará aquí su ruta, por ejemplo:
         <Route path="/productos" element={<RutaProtegida><Productos /></RutaProtegida>} />
         <Route path="/categorias" element={<RutaProtegida><Categorias /></RutaProtegida>} />

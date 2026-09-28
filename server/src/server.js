@@ -2,10 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import authRoutes from './routes/auth.routes.js';
 import trabajadorRoutes from './routes/trabajador.routes.js'; // nico
+import routes from './routes/index.js'; //gene
 import clienteRoutes from './routes/cliente.routes.js'; //jorge
 import recintoRoutes from './routes/recinto.routes.js'; //jorge
 import eventoRoutes from './routes/evento.routes.js'; //jorge
-
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,7 +19,7 @@ app.use('/api/auth', authRoutes);
 
 // Trabajadores y roles
 app.use('/api/trabajadores', trabajadorRoutes); // nico
-
+app.use('/api', routes);//gene
 
 //JORGE
 app.use('/api/clientes', clienteRoutes);
