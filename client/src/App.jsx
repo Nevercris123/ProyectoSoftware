@@ -25,11 +25,21 @@ export default function App() {
             <RutaProtegida>
               <>
                 <Home />
-                <Trabajadores /> {/*nico*/}
               </>
             </RutaProtegida>
           } 
         />
+
+        <Route 
+          path="/trabajadores" 
+          element={
+            <RutaProtegida>
+               <Trabajadores /> {/*nico*/}
+            </RutaProtegida>
+          } 
+        />
+
+
         <Route 
           path="/auspiciadores" 
           element={
