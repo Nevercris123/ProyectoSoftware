@@ -1,6 +1,6 @@
 // Importamos la "cocina" (el servicio que acabas de crear)
 import { auspiciadorService } from '../services/auspiciador.service.js';
-
+//holi
 export const auspiciadorController = {
   
   // 1. REGISTRAR
