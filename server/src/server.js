@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import authRoutes from './routes/auth.routes.js';
 import trabajadorRoutes from './routes/trabajador.routes.js'; // nico
+import clienteRoutes from './routes/cliente.routes.js'; //jorge
+import recintoRoutes from './routes/recinto.routes.js'; //jorge
+import eventoRoutes from './routes/evento.routes.js'; //jorge
 
 
 const app = express();
@@ -17,6 +20,11 @@ app.use('/api/auth', authRoutes);
 // Trabajadores y roles
 app.use('/api/trabajadores', trabajadorRoutes); // nico
 
+
+//JORGE
+app.use('/api/clientes', clienteRoutes);
+app.use('/api/recintos', recintoRoutes);
+app.use('/api/coberturas', eventoRoutes);
 
 //*********************
 // Ruta principal de prueba
