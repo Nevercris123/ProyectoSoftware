@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/login';
 import Home from './pages/Home';
+import Coberturas from './pages/Coberturas';
 import Trabajadores from './pages/Trabajadores'; // ruta nico
 
 // Componente para proteger rutas privadas (solo si hay token)
@@ -25,6 +26,15 @@ export default function App() {
               <Trabajadores /> //nico
             </RutaProtegida>
           } 
+        />
+
+        <Route
+          path="/coberturas"
+          element={
+            <RutaProtegida>
+              <Coberturas />
+            </RutaProtegida>
+          }
         />
 
         {/* Cada compañero agregará aquí su ruta, por ejemplo:
