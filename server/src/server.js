@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import authRoutes from './routes/auth.routes.js';
 import trabajadorRoutes from './routes/trabajador.routes.js'; // nico
-
+import routes from './routes/index.js'; //gene
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,7 +16,7 @@ app.use('/api/auth', authRoutes);
 
 // Trabajadores y roles
 app.use('/api/trabajadores', trabajadorRoutes); // nico
-
+app.use('/api', routes);//gene
 
 //*********************
 // Ruta principal de prueba
