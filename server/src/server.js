@@ -1,5 +1,8 @@
+import 'dotenv/config'; 
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import authRoutes from './routes/auth.routes.js';
 import trabajadorRoutes from './routes/trabajador.routes.js'; // nico
 import routes from './routes/index.js'; //gene
@@ -9,6 +12,11 @@ import eventoRoutes from './routes/evento.routes.js'; //jorge
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+//encontrar front
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const distPath = path.join(__dirname, '../../client/dist');
+
 
 // Middlewares
 app.use(cors());
@@ -27,11 +35,20 @@ app.use('/api/recintos', recintoRoutes);
 app.use('/api/coberturas', eventoRoutes);
 
 //*********************
-// Ruta principal de prueba
+// Ruta principal de prueba, comenta en server
 app.get('/', (req, res) => {
   res.send('¡La puerta está abierta y el servidor funciona!');
 });
 
+//************server
+// ruta principal, para server
+//app.use(express.static(distPath));
+
+// este permite que cualqueier ruta que no sea de api, nos devuelve a index.html
+//app.get(/^(?!\/api).*/, (req, res) => {
+//  res.sendFile(path.join(distPath, 'index.html'));
+//});
+// **********************
 
 // Nico, manejar errores...
 app.use((err, req, res, next) => {
