@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // 1. Importamos el hook de navegación
 import { registrarAuspiciador } from '../services/auspiciadorService'; // Importamos el "cable" que hicimos
 
-export default function AuspiciadoresPage() {
+export default function Auspiciadores() {
   const navigate = useNavigate(); // 2. Inicializamos la navegación
 
   // Aquí guardamos temporalmente lo que el usuario escribe en las cajitas (Estado)
@@ -31,12 +31,12 @@ export default function AuspiciadoresPage() {
     try {
       // Usamos nuestro servicio para mandar los datos al backend
       await registrarAuspiciador(formData);
-      setMensaje("✔ Auspiciador registrado con éxito!");
+      setMensaje(" Auspiciador registrado con éxito!");
 
       // Limpiamos el formulario
       setFormData({ nombre: '', rubro: '', contacto: '', telefono: '', id_dueno: 1 });
     } catch (error) {
-      setMensaje("❌ Hubo un error al registrar. Revisa la consola.");
+      setMensaje(" Hubo un error al registrar. Revisa la consola.");
     }
   };
 
