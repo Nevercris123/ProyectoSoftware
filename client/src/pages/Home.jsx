@@ -22,11 +22,10 @@ export default function Home() {
 
       {/* Aquí es donde cada compañero enchufa el acceso a su módulo */}
       <nav style={{ marginTop: '20px', display: 'flex', gap: '15px' }}>
-        <button onClick={() => navigate('/productos')}>Módulo Productos</button>
-        <button onClick={() => navigate('/categorias')}>Módulo Categorías</button>
         <button onClick={() => navigate('/trabajadores')}>Módulo Trabajadores</button>
         <button onClick={() => navigate('/auspiciadores')}>Módulo Auspiciadores</button>
         <button onClick={() => navigate('/coberturas')}>Módulo Coberturas</button>
+        <button onClick={() => navigate('/incidentes')}>Módulo Incidentes</button>
       </nav>
 
       <main style={{ marginTop: '30px' }}>
