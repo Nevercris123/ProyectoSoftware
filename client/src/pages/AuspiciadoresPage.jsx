@@ -1,8 +1,11 @@
-// client/src/pages/AuspiciadoresPage.jsx
+/// client/src/pages/AuspiciadoresPage.jsx
 import { useState } from 'react';
-import { registrarAuspiciador } from "../../services/auspiciadorService"; // Importamos el "cable" que hicimos
+import { useNavigate } from 'react-router-dom'; // 1. Importamos el hook de navegación
+import { registrarAuspiciador } from '../services/auspiciadorService'; // Importamos el "cable" que hicimos
 
 export default function AuspiciadoresPage() {
+  const navigate = useNavigate(); // 2. Inicializamos la navegación
+
   // Aquí guardamos temporalmente lo que el usuario escribe en las cajitas (Estado)
   const [formData, setFormData] = useState({
     nombre: '',
@@ -28,8 +31,8 @@ export default function AuspiciadoresPage() {
     try {
       // Usamos nuestro servicio para mandar los datos al backend
       await registrarAuspiciador(formData);
-      setMensaje("✅ Auspiciador registrado con éxito!");
-      
+      setMensaje("✔ Auspiciador registrado con éxito!");
+
       // Limpiamos el formulario
       setFormData({ nombre: '', rubro: '', contacto: '', telefono: '', id_dueno: 1 });
     } catch (error) {
@@ -40,8 +43,27 @@ export default function AuspiciadoresPage() {
   // Esta es la parte visual (HTML mezclado con JavaScript)
   return (
     <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto', fontFamily: 'sans-serif' }}>
-      <h1>Registrar Auspiciador</h1>
       
+      {/* 3. Botón para volver al inicio */}
+      <button 
+        type="button" 
+        onClick={() => navigate('/')}
+        style={{
+          backgroundColor: '#6c757d',
+          color: 'white',
+          padding: '8px 14px',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+          marginBottom: '20px',
+          fontSize: '14px'
+        }}
+      >
+        ← Volver al inicio
+      </button>
+
+      <h1>Registrar Auspiciador</h1>
+
       {/* Mostramos el mensaje si es que hay uno */}
       {mensaje && <p style={{ fontWeight: 'bold' }}>{mensaje}</p>}
 
@@ -49,56 +71,57 @@ export default function AuspiciadoresPage() {
         
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <label>Nombre del Auspiciador:</label>
-          <input 
-            type="text" 
-            name="nombre" 
-            value={formData.nombre} 
-            onChange={manejarCambio} 
-            required 
+          <input
+            type="text"
+            name="nombre"
+            value={formData.nombre}
+            onChange={manejarCambio}
+            required
             style={{ padding: '8px', fontSize: '16px' }}
           />
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <label>Rubro:</label>
-          <input 
-            type="text" 
-            name="rubro" 
-            value={formData.rubro} 
-            onChange={manejarCambio} 
+          <input
+            type="text"
+            name="rubro"
+            value={formData.rubro}
+            onChange={manejarCambio}
             style={{ padding: '8px', fontSize: '16px' }}
           />
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <label>Nombre del Contacto:</label>
-          <input 
-            type="text" 
-            name="contacto" 
-            value={formData.contacto} 
-            onChange={manejarCambio} 
+          <input
+            type="text"
+            name="contacto"
+            value={formData.contacto}
+            onChange={manejarCambio}
             style={{ padding: '8px', fontSize: '16px' }}
           />
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <label>Teléfono:</label>
-          <input 
-            type="text" 
-            name="telefono" 
-            value={formData.telefono} 
-            onChange={manejarCambio} 
-            required 
+          <input
+            type="text"
+            name="telefono"
+            value={formData.telefono}
+            onChange={manejarCambio}
+            required
             style={{ padding: '8px', fontSize: '16px' }}
           />
         </div>
 
         <button 
-          type="submit" 
+          type="submit"
           style={{ padding: '10px', fontSize: '16px', backgroundColor: '#0056b3', color: 'white', border: 'none', cursor: 'pointer', marginTop: '10px' }}
         >
           Guardar Auspiciador
         </button>
+
       </form>
     </div>
   );
