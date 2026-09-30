@@ -1,6 +1,7 @@
 import prisma from '../config/prisma.js'; // llamamos a la base de datos
 import { ValidationError } from '../utils/errores.js';// ajusta la ruta a tu PrismaClient
 
+///hfghfghfg
 // validar
 const VerificarNombre = (nombre, obligatorio = true) => {
     if(nombre === undefined && !obligatorio) return undefined;
