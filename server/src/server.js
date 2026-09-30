@@ -34,13 +34,13 @@ app.use('/api/clientes', clienteRoutes);
 app.use('/api/recintos', recintoRoutes);
 app.use('/api/coberturas', eventoRoutes);
 
-//*********************
-// Ruta principal de prueba, comenta en server
+
+// Comentar, cuando esta en el server....
 app.get('/', (req, res) => {
   res.send('¡La puerta está abierta y el servidor funciona!');
 });
 
-//************server
+//comentar cundo esten en local*/
 // ruta principal, para server
 //app.use(express.static(distPath));
 
@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 //app.get(/^(?!\/api).*/, (req, res) => {
 //  res.sendFile(path.join(distPath, 'index.html'));
 //});
-// **********************
+// ***********************/
 
 // Nico, manejar errores...
 app.use((err, req, res, next) => {
@@ -58,7 +58,6 @@ app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).json({ mensaje: 'Error interno del servidor' });
 });
-//*****************************
 
 
 

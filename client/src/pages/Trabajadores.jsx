@@ -82,7 +82,7 @@ export default function Trabajadores() {
         <label>Nombre</label>
         <input name="nombre" value={form.nombre} onChange={cambiarCampo} />
 
-        <label>Teléfono WhatsApp (opcional)</label>
+        <label>Teléfono WhatsApp (obligatorio)</label>
         <input
           name="telefono_whatsapp"
           value={form.telefono_whatsapp}

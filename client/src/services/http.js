@@ -6,6 +6,7 @@ export function obtenerUsuario() {
   return guardado ? JSON.parse(guardado) : null;
 }
 
+
 // Función que usan todos los services para hablar con el back
 export async function pedir(ruta, opciones = {}) {
   const headers = { 'Content-Type': 'application/json' };
