@@ -36,18 +36,18 @@ app.use('/api/coberturas', eventoRoutes);
 
 
 // Comentar, cuando esta en el server....
-app.get('/', (req, res) => {
-  res.send('¡La puerta está abierta y el servidor funciona!');
-});
+//app.get('/', (req, res) => {
+//  res.send('¡La puerta está abierta y el servidor funciona!');
+//});
 
 //comentar cundo esten en local*/
 // ruta principal, para server
-//app.use(express.static(distPath));
+app.use(express.static(distPath));
 
 // este permite que cualqueier ruta que no sea de api, nos devuelve a index.html
-//app.get(/^(?!\/api).*/, (req, res) => {
-//  res.sendFile(path.join(distPath, 'index.html'));
-//});
+app.get(/^(?!\/api).*/, (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
 // ***********************/
 
 // Nico, manejar errores...
